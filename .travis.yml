@@ -13,8 +13,17 @@ install:
 before_script:
   # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd ../..
-  - echo $(whoami)
-  - cd /home/$(whoami)
+  - ls -lah
+  - cd ../
+  - ls -lah
+  - cd ../
+  - ls -lah
+  - cd ../
+  - ls -lah
+  - cd ../
+  - ls -lah
+  - cd ../
+  - ls -lah
 
   - mkdir workspace 
   - cd workspace
