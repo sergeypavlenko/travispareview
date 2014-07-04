@@ -12,23 +12,10 @@ install:
 
 before_script:
   # navigate out of module directory to prevent blown stack by recursive module lookup
-  - cd ../..
-  - ls -lah
-  - cd ../
-  - ls -lah
-  - cd build
-  - ls -lah
-  - cd ../
-  - ls -lah
-  - cd ../
-  - ls -lah
-  - cd ../
-  - ls -lah
-  - cd ../
-  - ls -lah
+  - cd /home/travis/build
 
-  - mkdir workspace 
-  - cd workspace
+  - mkdir /home/travis/build/workspace 
+  - cd /home/travis/build/workspace
 
   - git clone https://github.com/klausi/pareviewsh.git
   - git clone --branch phpcs-fixer https://github.com/squizlabs/PHP_CodeSniffer.git
@@ -37,13 +24,13 @@ before_script:
   - git clone --branch master http://git.drupal.org/sandbox/coltrane/1921926.git drupalsecure
   - git clone --branch master https://github.com/lucasdemarchi/codespell.git
 
-  - ln -s coder/coder_sniffer/Drupal PHP_CodeSniffer/CodeSniffer/Standards
-  - ln -s drupalpractice/DrupalPractice PHP_CodeSniffer/CodeSniffer/Standards
-  - ln -s drupalsecure/DrupalSecure PHP_CodeSniffer/CodeSniffer/Standards
+  - ln -s /home/travis/build/workspace/coder/coder_sniffer/Drupal /home/travis/build/workspace/PHP_CodeSniffer/CodeSniffer/Standards
+  - ln -s /home/travis/build/workspace/drupalpractice/DrupalPractice /home/travis/build/workspace/PHP_CodeSniffer/CodeSniffer/Standards
+  - ln -s /home/travis/build/workspace/drupalsecure/DrupalSecure /home/travis/build/workspace/PHP_CodeSniffer/CodeSniffer/Standards
 
-  - sudo ln -s PHP_CodeSniffer/scripts/phpcs /usr/local/bin
-  - sudo ln -s codespell/codespell.py /usr/local/bin/codespell
+  - sudo ln -s /home/travis/build/workspace/PHP_CodeSniffer/scripts/phpcs /usr/local/bin
+  - sudo ln -s /home/travis/build/workspace/codespell/codespell.py /usr/local/bin/codespell
 
-  - sudo ln -s pareviewsh/pareview.sh /usr/local/bin
+  - sudo ln -s /home/travis/build/workspace/pareviewsh/pareview.sh /usr/local/bin
 
-script: workspace/pareview.sh sergeypavlenko/travispareview/code
+script: /home/travis/build/workspace/pareview.sh /home/travis/build/sergeypavlenko/travispareview/code
