@@ -16,6 +16,8 @@ before_script:
   - ls -lah
   - cd ../
   - ls -lah
+  - cd build
+  - ls -lah
   - cd ../
   - ls -lah
   - cd ../
