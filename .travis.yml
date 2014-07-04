@@ -13,8 +13,23 @@ install:
 before_script:
   # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd ../..
-  - ls -lah
-  - mkdir workspace
-  - ls -lah
 
-script: ls
+  - cd workspace
+
+  - git clone https://github.com/klausi/pareviewsh.git
+	- git clone --branch phpcs-fixer https://github.com/squizlabs/PHP_CodeSniffer.git
+	- git clone --branch 8.x-2.x http://git.drupal.org/project/coder.git
+	- git clone --branch 8.x-1.x http://git.drupal.org/project/drupalpractice.git
+	- git clone --branch master http://git.drupal.org/sandbox/coltrane/1921926.git drupalsecure
+  - git clone --branch master https://github.com/lucasdemarchi/codespell.git
+
+  - ln -s coder/coder_sniffer/Drupal PHP_CodeSniffer/CodeSniffer/Standards
+  - ln -s drupalpractice/DrupalPractice PHP_CodeSniffer/CodeSniffer/Standards
+  - ln -s drupalsecure/DrupalSecure PHP_CodeSniffer/CodeSniffer/Standards
+
+  - sudo ln -s PHP_CodeSniffer/scripts/phpcs /usr/local/bin
+  - sudo ln -s codespell/codespell.py /usr/local/bin/codespell
+
+  - sudo ln -s pareviewsh/pareview.sh /usr/local/bin
+
+script: pareview.sh sergeypavlenko/travispareview/code
