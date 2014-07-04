@@ -1,0 +1,20 @@
+language: php
+
+php:
+  - 5.3
+
+before_install:
+  - sudo apt-get update > /dev/null
+
+install:
+  # install php packages required for running a web server from drush on php 5.3
+  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
+
+before_script:
+  # navigate out of module directory to prevent blown stack by recursive module lookup
+  - cd ../..
+  - ls -lah
+  - mkdir workspace
+  - ls -lah
+
+script: ls
