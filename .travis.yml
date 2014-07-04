@@ -17,10 +17,10 @@ before_script:
   - cd workspace
 
   - git clone https://github.com/klausi/pareviewsh.git
-	- git clone --branch phpcs-fixer https://github.com/squizlabs/PHP_CodeSniffer.git
-	- git clone --branch 8.x-2.x http://git.drupal.org/project/coder.git
-	- git clone --branch 8.x-1.x http://git.drupal.org/project/drupalpractice.git
-	- git clone --branch master http://git.drupal.org/sandbox/coltrane/1921926.git drupalsecure
+  - git clone --branch phpcs-fixer https://github.com/squizlabs/PHP_CodeSniffer.git
+  - git clone --branch 8.x-2.x http://git.drupal.org/project/coder.git
+  - git clone --branch 8.x-1.x http://git.drupal.org/project/drupalpractice.git
+  - git clone --branch master http://git.drupal.org/sandbox/coltrane/1921926.git drupalsecure
   - git clone --branch master https://github.com/lucasdemarchi/codespell.git
 
   - ln -s coder/coder_sniffer/Drupal PHP_CodeSniffer/CodeSniffer/Standards
