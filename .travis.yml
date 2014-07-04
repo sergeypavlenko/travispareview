@@ -33,4 +33,4 @@ before_script:
 
   - sudo ln -s pareviewsh/pareview.sh /usr/local/bin
 
-script: pareview.sh sergeypavlenko/travispareview/code
+script: workspace/pareview.sh sergeypavlenko/travispareview/code
