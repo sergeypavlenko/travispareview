@@ -7,18 +7,16 @@ before_install:
   - sudo apt-get update > /dev/null
 
 install:
-  # install php packages required for running a web server from drush on php 5.3
-  - sudo apt-get install -y --force-yes php5-cgi
+  # for codespell.
   - sudo apt-get install python3
 
 before_script:
-  # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd /home/travis/build
 
   - mkdir /home/travis/build/workspace 
   - cd /home/travis/build/workspace
 
-  - git clone https://github.com/klausi/pareviewsh.git
+  - git clone https://github.com/sergeypavlenko/pareviewsh.git
   - git clone --branch phpcs-fixer https://github.com/squizlabs/PHP_CodeSniffer.git
   - git clone --branch 8.x-2.x http://git.drupal.org/project/coder.git
   - git clone --branch 8.x-1.x http://git.drupal.org/project/drupalpractice.git
@@ -34,10 +32,8 @@ before_script:
 
   - sudo ln -s /home/travis/build/workspace/pareviewsh/pareview.sh /usr/local/bin
 
-  #/home/travis/build/workspace/pareviewsh/pareview.sh /home/travis/build/sergeypavlenko/travispareview/code
-
-script:
-  - phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,js,css,info,txt,md /home/travis/build/sergeypavlenko/travispareview/code
-  - phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme /home/travis/build/sergeypavlenko/travispareview/code
-  - phpcs --standard=DrupalSecure --extensions=php,module,inc,install,test,profile,theme /home/travis/build/sergeypavlenko/travispareview/code
-  - codespell -d /home/travis/build/sergeypavlenko/travispareview/code
+script: /home/travis/build/workspace/pareviewsh/pareview.sh /home/travis/build/sergeypavlenko/travispareview/code
+  #- phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,js,css,info,txt,md /home/travis/build/sergeypavlenko/travispareview/code
+  #- phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme /home/travis/build/sergeypavlenko/travispareview/code
+  #- phpcs --standard=DrupalSecure --extensions=php,module,inc,install,test,profile,theme /home/travis/build/sergeypavlenko/travispareview/code
+  #- codespell -d /home/travis/build/sergeypavlenko/travispareview/code
